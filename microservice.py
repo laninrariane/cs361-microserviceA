@@ -21,6 +21,7 @@ app = Flask(__name__)
 # FILL IN EMAIL INFO
 EMAIL_ADDRESS = os.getenv("EMAIL_USER", "sender_email_address")
 EMAIL_PASSWORD = os.getenv("EMAIL_PASS", "sender_email_password")
+AUTH_KEY = "1234567890ABCDE"
 
 
 @app.route("/send-email", methods=["POST"])
@@ -34,3 +35,9 @@ def send_email():
     req_fields = ["email", "subject", "message", "auth_key"]
     if not all(field in data for field in req_fields):
         return jsonify({"status": "failure", "error": "Missing required fields"}), 400
+
+    # Check auth key (optional)
+    # if data['auth_key'] != AUTH_KEY:
+    #     return jsonify({"status": "failure", "error": "Auth key invalid or missing"}), 403
+    
+    
