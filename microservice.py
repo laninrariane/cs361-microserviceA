@@ -3,7 +3,7 @@
 # Stephen Reid
 # 08/03/2025
 # CS361
-# Microservice A
+# Microservice A - Email Microservice
 #
 # Accepts JSON containing email, subject, message, and auth key and sends email
 # to address based on data received
@@ -16,6 +16,8 @@ from email.message import EmailMessage
 import os
 
 app = Flask(__name__)
+
+PORT = 4040
 
 # Set credentials for sender email address and set auth key
 # To set without hardcoding use following in terminal:
@@ -69,4 +71,4 @@ def send_email():
 
 
 if __name__ == "__main__":
-    app.run(port=4040)
+    app.run(port=PORT)
