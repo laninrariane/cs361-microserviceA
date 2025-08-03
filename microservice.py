@@ -17,10 +17,9 @@ import os
 
 app = Flask(__name__)
 
-# Set credentials for sender email address
-# FILL IN EMAIL INFO
-EMAIL_ADDRESS = os.getenv("EMAIL_USER", "sender_email_address")
-EMAIL_PASSWORD = os.getenv("EMAIL_PASS", "sender_email_password")
+# Set credentials for sender email address and set auth key
+EMAIL_ADDRESS = ""
+EMAIL_PASSWORD = ""
 AUTH_KEY = "1234567890ABCDE"
 
 
