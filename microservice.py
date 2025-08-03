@@ -21,8 +21,11 @@ app = Flask(__name__)
 # To set without hardcoding use following in terminal:
 #   export EMAIL_USER=""
 #   export EMAIL_PASS=""
-EMAIL_ADDRESS = os.getenv("EMAIL_USER", "email@email.com")
-EMAIL_PASSWORD = os.getenv("EMAIL_PASS", "password")
+# NOTE: I had trouble getting environment variables working and used hardcoded values when testing
+# EMAIL_ADDRESS = os.getenv("EMAIL_USER", "email@email.com")
+# EMAIL_PASSWORD = os.getenv("EMAIL_PASS", "password")
+EMAIL_ADDRESS=""
+EMAIL_PASSWORD=""
 AUTH_KEY = "1234567890ABCDE"
 
 
