@@ -74,4 +74,6 @@ Standard HTTP status codes are used to handle different outcomes:
 | 403       | Forbidden             | Invalid or missing auth key  |
 | 500       | Internal Server Error | Email failed to send         |
 
+## 📊 UML Diagram
+<img width="590" height="334" alt="Untitled" src="https://github.com/user-attachments/assets/080cef31-ee10-4e47-aefa-3efbcb8192f0" />
 
