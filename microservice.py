@@ -5,8 +5,32 @@
 # CS361
 # Microservice A
 #
-# Accepts JSON containing email, subject, message, and auth key and sends email 
-# to address based on data received 
+# Accepts JSON containing email, subject, message, and auth key and sends email
+# to address based on data received
 #
 ###################################################
 
+from flask import Flask, request, jsonify
+import smtplib
+from email.message import EmailMessage
+import os
+
+app = Flask(__name__)
+
+# Set credentials for sender email address
+# FILL IN EMAIL INFO
+EMAIL_ADDRESS = os.getenv("EMAIL_USER", "sender_email_address")
+EMAIL_PASSWORD = os.getenv("EMAIL_PASS", "sender_email_password")
+
+
+@app.route("/send-email", methods=["POST"])
+def send_email():
+    """Receives HTTP POST, sends email message, and returns HTTP status based
+    on result (success or failure)"""
+
+    data = request.get_json()
+
+    # Field validation
+    req_fields = ["email", "subject", "message", "auth_key"]
+    if not all(field in data for field in req_fields):
+        return jsonify({"status": "failure", "error": "Missing required fields"}), 400
