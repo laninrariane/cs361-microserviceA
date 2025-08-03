@@ -40,4 +40,16 @@ def send_email():
     # if data['auth_key'] != AUTH_KEY:
     #     return jsonify({"status": "failure", "error": "Auth key invalid or missing"}), 403
     
-    
+    # Compose email and send it
+    try:
+        msg = EmailMessage()
+        msg['Subject'] = data['subject']
+        msg['From'] = EMAIL_ADDRESS
+        msg['To'] = data['email']
+        msg.set_content(data['message'])
+
+    except Exception as e:
+        return jsonify({"status": "failure", "error": str(e)}), 500
+
+if __name__ == '__main__':
+    app.run(port=4040) 
