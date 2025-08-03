@@ -48,6 +48,10 @@ def send_email():
         msg['To'] = data['email']
         msg.set_content(data['message'])
 
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+            smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+            smtp.send_message(msg)
+
     except Exception as e:
         return jsonify({"status": "failure", "error": str(e)}), 500
 
