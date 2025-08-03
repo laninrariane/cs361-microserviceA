@@ -1,6 +1,6 @@
 # 📧 Microservice A - Email Sender
 **Stephen Reid**  
-**CS361** 
+**CS361** --
 **08/03/2025**
 
 ---
